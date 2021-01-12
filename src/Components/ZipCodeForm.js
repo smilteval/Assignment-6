@@ -1,4 +1,5 @@
 import React from 'react'
+import ZipCodeCityList from './ZipCodeCityList'
 
 export default function ZipCodeForm() {
     return (
@@ -11,6 +12,7 @@ export default function ZipCodeForm() {
                 <input id="zip-code-input" name="zipCode" type="text" placeholder="Try 10016"></input>
             </div>
             <p></p>
+            <ZipCodeCityList/>
         </div>
     )
 }
