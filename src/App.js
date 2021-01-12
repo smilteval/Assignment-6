@@ -1,9 +1,12 @@
 import './App.css';
+import ZipCodeSearch from "./Pages/ZipCodeSearch"
+import CitySearch from "./Pages/CitySearch"
 
 function App() {
   return (
     <div className="App">
-      <h1>Hi</h1>
+      <ZipCodeSearch/>
+      {/* <CitySearch/> */}
     </div>
   );
 }
