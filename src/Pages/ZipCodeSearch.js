@@ -1,9 +1,10 @@
 import React from 'react'
+import ZipCodeForm from '../Components/ZipCodeForm'
 
 export default function ZipCodeSearch() {
     return (
         <div>
-            <h1>Zip Code Search</h1>
+            <ZipCodeForm/>
         </div>
     )
 }
