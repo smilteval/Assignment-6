@@ -43,7 +43,7 @@ export class CityForm extends Component {
             console.log(error);
             this.setState({
                 zipCodeData: [],
-                noResultText: "No Result"
+                noResultText: "City Not Found"
             });
         }
     }    
@@ -53,37 +53,31 @@ export class CityForm extends Component {
             <div>
                 <header>
                     <h1>City Search</h1>
-                    </header>
-                    <div id="search-section">
-                        <label>City:</label>
-                        <input 
-                            id="city-input"  
-                            type="search" 
-                            placeholder="Try Springfield"
-                            style={{textTransform: "uppercase"}}
-                            onChange={this.handleChange}
-                        />
-                        <button id="search-btn" onClick={()=>{this.getData()}}>Search</button>
-                    </div>
-                    <div>
-                        <p id ="city-not-found">{this.state.noResultText}</p>    
-                    </div>
-    
-                    {/* for every zip code found, print it */}
-                    {this.state.zipCodeData.map(zipCode=>{
-                        // passing all the data values to another component
-                        return (
-                            //static city card 
-                            <div id="city-card">
-                                <h2>{zipCode.LocationText}</h2>
-                                <div id ="city-info">
-                                    <ul>
-                                        <li id="zip">{zipCode.State}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        )
-                    })}
+                </header>
+                <div id="search-section">
+                    <label>City:</label>
+                    <input 
+                        id="city-input"  
+                        type="search" 
+                        placeholder="Try Springfield"
+                        onChange={this.handleChange}
+                    />
+                    <button id="search-btn" onClick={()=>{this.getData()}}>Search</button>
+                </div>
+                <div>
+                    <p id ="city-not-found">{this.state.noResultText}</p>    
+                </div>
+
+                <div id ="zip-code-list">
+                    <h2></h2>
+                    <ul>
+                        {/* for every zip code found, print it */}
+                        {this.state.zipCodeData.map(zipCode=>{
+                            // passing all the data values to another component
+                            return <li id="zip">{zipCode}</li>
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }
