@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './CityForm.css';
 
 export class CityForm extends Component {
 
@@ -67,10 +68,10 @@ export class CityForm extends Component {
                 <div>
                     <p id ="city-not-found">{this.state.noResultText}</p>    
                 </div>
-
-                <div id ="zip-code-list">
+                    
+                <div id ="zip-code-card">
                     <h2></h2>
-                    <ul>
+                    <ul id="zip-code-list">
                         {/* for every zip code found, print it */}
                         {this.state.zipCodeData.map(zipCode=>{
                             // passing all the data values to another component

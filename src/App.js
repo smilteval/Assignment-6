@@ -4,10 +4,16 @@ import CityForm from "./Components/CityForm"
 
 function App() {
   return (
-    <div className="App">
-      {/* <ZipCodeForm/> */}
-      <CityForm/>
+    <div>
+      <div className="ZipCodeApp">
+        <ZipCodeForm/>
+      </div>
+      <div className="CityApp">
+        <CityForm/>
+      </div>
     </div>
+    
+    
   );
 }
 
