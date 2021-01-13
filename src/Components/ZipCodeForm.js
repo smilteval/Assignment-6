@@ -1,7 +1,15 @@
 import React, {useState} from 'react'
-import ZipCodeCityList from './ZipCodeCityCard'
+import ZipCodeCityCard from './ZipCodeCityCard'
 
 export default function ZipCodeForm() {
+
+    let [zipCode,setZipCode] = useState(null);
+
+    let handleChange = event => {
+        setZipCode(event.target.value);
+    }
+
+    console.log(zipCode);
 
     return (
         <div>
@@ -10,17 +18,24 @@ export default function ZipCodeForm() {
             </header>
             <div id="search-section">
                 <label>Zip Code:</label>
-                <input id="zip-code-input" name="zipCode" type="text" placeholder="Try 10016"></input>
+                <input 
+                    id="zip-code-input" 
+                    name="zipCode" 
+                    type="text" 
+                    placeholder="Try 10016"
+                    onChange={handleChange}
+                >
+                </input>
             </div>
-            <p></p>
-            <ZipCodeCityList
-                LocationText = {LocationText}
-                State = {State}
-                Lat = {Lat}
-                Long = {Long}
-                EstimatedPopulation = {EstimatedPopulation}
-                TotalWages = {TotalWages}
-            />
+            <p id ="zip-not-found"></p>
+            {/* <ZipCodeCityCard
+                locationText = {locationText}
+                state = {state}
+                lat = {lat}
+                long = {long}
+                estimatedPopulation = {estimatedPopulation}
+                totalWages = {totalWages}
+            /> */}
         </div>
     )
 }

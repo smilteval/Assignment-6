@@ -1,4 +1,4 @@
-export default function ZipCodeCityList(props) {
+export default function ZipCodeCityCard(props) {
 
     let {
         LocationText,
