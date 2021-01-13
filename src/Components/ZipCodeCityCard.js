@@ -1,5 +1,6 @@
 export default function ZipCodeCityCard(props) {
 
+    //values passed from the ZipCodeForm component
     let {
         LocationText,
         State,
