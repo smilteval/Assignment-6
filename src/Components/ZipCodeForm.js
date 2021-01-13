@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ZipCodeCityCard from './ZipCodeCityCard'
 
 export class ZipCodeFormClass extends Component {
 
@@ -68,14 +67,20 @@ export class ZipCodeFormClass extends Component {
                 {/* for every city found, print its details */}
                 {this.state.cityData.map(city=>{
                     // passing all the data values to another component
-                    return <ZipCodeCityCard
-                        LocationText = {city.LocationText}
-                        State = {city.State}
-                        Lat = {city.Lat}
-                        Long = {city.Long}
-                        EstimatedPopulation = {city.EstimatedPopulation}
-                        TotalWages = {city.TotalWages}
-                    />
+                    return (
+                        //static city card 
+                        <div id="city-card">
+                            <h2>{city.LocationText}</h2>
+                            <div id ="city-info">
+                                <ul>
+                                    <li id="state">State: {city.State}</li>
+                                    <li id="location">Location: ({city.Lat},{city.Long})</li>
+                                    <li id="population">Population (estimated): {city.EstimatedPopulation}</li>
+                                    <li id="wages">Total Wages: {city.TotalWages}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    )
                 })}
             
             </div>
