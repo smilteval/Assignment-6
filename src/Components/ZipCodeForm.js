@@ -15,7 +15,7 @@ export default function ZipCodeForm() {
     const getData = async () => {
         try{
             //get a response from an api
-            let response = await fetch("http://ctp-zip-api.herokuapp.com/zip/"+`${zipCode}`);
+            let response = await fetch("http://ctp-zip-api.herokuapp.com/zip/" + zipCode);
             
             //if there was an error, print it
             if(!response.ok){
@@ -46,11 +46,11 @@ export default function ZipCodeForm() {
                 <label>Zip Code:</label>
                 <input 
                     id="zip-code-input"  
-                    type="text" 
+                    type="search" 
+                    min-minLength = "5"
                     placeholder="Try 10016"
                     onChange={handleChange}
-                >
-                </input>
+                />
             </div>
             <p id ="zip-not-found"></p>
 
