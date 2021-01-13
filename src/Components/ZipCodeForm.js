@@ -61,9 +61,10 @@ export class ZipCodeFormClass extends Component {
                         placeholder="Try 10016"
                         onChange={this.handleChange}
                     />
-                    <button onClick={()=>{this.getData()}}>Search</button>
+                    <button id="search-btn" onClick={()=>{this.getData()}}>Search</button>
                 </div>
                 <p id ="zip-not-found">{this.state.noResultText}</p>
+
                 {/* for every city found, print its details */}
                 {this.state.cityData.map(city=>{
                     // passing all the data values to another component
