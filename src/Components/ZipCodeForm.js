@@ -13,9 +13,26 @@ export default function ZipCodeForm() {
 
     //get data from an api
     const getData = async () => {
-        let response = await fetch("http://ctp-zip-api.herokuapp.com/zip/"+`${zipCode}`);
-        let data = await response.json();
-        setCityData(data);
+        try{
+            //get a response from an api
+            let response = await fetch("http://ctp-zip-api.herokuapp.com/zip/"+`${zipCode}`);
+            
+            //if there was an error, print it
+            if(!response.ok){
+                throw new Error("Something went wrong");
+            }
+            
+            //turn the response into a data object
+            let data = await response.json();
+
+            //set the city data to the data received from an api
+            setCityData(data);
+            
+        }
+        catch(error){
+            console.log(error);
+            setCityData([]);
+        }
     }
 
     getData();
