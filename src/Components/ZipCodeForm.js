@@ -63,7 +63,9 @@ export class ZipCodeFormClass extends Component {
                     />
                     <button id="search-btn" onClick={()=>{this.getData()}}>Search</button>
                 </div>
-                <p id ="zip-not-found">{this.state.noResultText}</p>
+                <div>
+                    <p id ="zip-not-found">{this.state.noResultText}</p>    
+                </div>
 
                 {/* for every city found, print its details */}
                 {this.state.cityData.map(city=>{
