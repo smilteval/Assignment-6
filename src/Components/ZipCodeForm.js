@@ -9,7 +9,15 @@ export default function ZipCodeForm() {
         setZipCode(event.target.value);
     }
 
-    console.log(zipCode);
+    let[cityData, setCityData] = useState([]);
+
+    const getData = async () => {
+        let response = await fetch("http://ctp-zip-api.herokuapp.com/zip/"+`${zipCode}`);
+        let data = await response.json();
+        setCityData(data);
+    }
+
+    getData();
 
     return (
         <div>
@@ -19,8 +27,7 @@ export default function ZipCodeForm() {
             <div id="search-section">
                 <label>Zip Code:</label>
                 <input 
-                    id="zip-code-input" 
-                    name="zipCode" 
+                    id="zip-code-input"  
                     type="text" 
                     placeholder="Try 10016"
                     onChange={handleChange}
@@ -28,14 +35,6 @@ export default function ZipCodeForm() {
                 </input>
             </div>
             <p id ="zip-not-found"></p>
-            {/* <ZipCodeCityCard
-                locationText = {locationText}
-                state = {state}
-                lat = {lat}
-                long = {long}
-                estimatedPopulation = {estimatedPopulation}
-                totalWages = {totalWages}
-            /> */}
         </div>
     )
 }
