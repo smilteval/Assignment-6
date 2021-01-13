@@ -5,6 +5,7 @@ export default function ZipCodeForm() {
 
     let [zipCode,setZipCode] = useState(null);
     let [cityData,setCityData] = useState([]);
+    let [noResultText, setNoResultText] = useState("No Result");
 
     //every time a user enters a zip code, update it
     let handleChange = event => {
@@ -15,7 +16,7 @@ export default function ZipCodeForm() {
     const getData = async () => {
         try{
             //get a response from an api
-            let response = await fetch("http://ctp-zip-api.herokuapp.com/zip/" + zipCode);
+            let response = await fetch("https://ctp-zip-api.herokuapp.com/zip/" + zipCode);
             
             //if there was an error, print it
             if(!response.ok){
@@ -27,11 +28,14 @@ export default function ZipCodeForm() {
 
             //set the city data to the data received from an api
             setCityData(data);
-            
+
+            //set the <p> text to an empty string
+            setNoResultText(" ");
         }
         catch(error){
             console.log(error);
             setCityData([]);
+            setNoResultText("No Result");
         }
     }
 
@@ -47,16 +51,14 @@ export default function ZipCodeForm() {
                 <input 
                     id="zip-code-input"  
                     type="search" 
-                    min-minLength = "5"
                     placeholder="Try 10016"
                     onChange={handleChange}
                 />
             </div>
-            <p id ="zip-not-found"></p>
+            <p id ="zip-not-found">{noResultText}</p>
 
             {/* for every city found, print its details */}
             {cityData.map(city=>{
-
                 // passing all the data values to another component
                 return <ZipCodeCityCard
                     LocationText = {city.LocationText}
