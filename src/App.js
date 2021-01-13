@@ -1,12 +1,12 @@
 import './App.css';
 import ZipCodeForm from "./Components/ZipCodeForm";
-//import CitySearch from "./Pages/CitySearch"
+import CityForm from "./Components/CityForm"
 
 function App() {
   return (
     <div className="App">
-      <ZipCodeForm/>
-      {/* <CitySearch/> */}
+      {/* <ZipCodeForm/> */}
+      <CityForm/>
     </div>
   );
 }

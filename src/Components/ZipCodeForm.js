@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class ZipCodeFormClass extends Component {
+export class ZipCodeForm extends Component {
 
     constructor(){
         super();
@@ -91,4 +91,4 @@ export class ZipCodeFormClass extends Component {
     }
 }
 
-export default ZipCodeFormClass
+export default ZipCodeForm
