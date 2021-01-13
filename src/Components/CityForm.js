@@ -68,17 +68,17 @@ export class CityForm extends Component {
                 <div>
                     <p id ="city-not-found">{this.state.noResultText}</p>    
                 </div>
-                    
-                <div id ="zip-code-card">
-                    <h2></h2>
-                    <ul id="zip-code-list">
-                        {/* for every zip code found, print it */}
-                        {this.state.zipCodeData.map(zipCode=>{
-                            // passing all the data values to another component
-                            return <li id="zip">{zipCode}</li>
-                        })}
-                    </ul>
-                </div>
+                
+                {/* for every zip code found, print it */}
+                {this.state.zipCodeData.map(zipCode=>{
+                    return(
+                        <div id ="zip-code-card">
+                            <ul id="zip-code-list">
+                                <li id="zip">{zipCode}</li>
+                            </ul>
+                        </div>
+                    )
+                })}
             </div>
         )
     }
